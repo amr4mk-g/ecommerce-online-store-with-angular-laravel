@@ -1,0 +1,93 @@
+<app-loading *ngIf="loading"></app-loading>
+
+<app-toast [start]="toastShow" [body]="toastMessage"></app-toast>
+
+<div class="container">
+    <mat-card class="card">
+      <mat-card-content>
+        <div class="row">
+          <div class="col-4">
+            <h2 class="title">User:</h2>
+            <div class="report-item c-r">
+              <p class="item-title">Active</p>
+              <p class="item-value">{{data.users_in}}</p>
+            </div>
+            <div class="report-item c-g">
+              <p class="item-title">Disabled</p>
+              <p class="item-value">{{data.users_out}}</p>
+            </div>
+            <div class="report-item c-b">
+              <p class="item-title">Admin</p>
+              <p class="item-value">{{data.users_admin}}</p>
+            </div>
+          </div>
+  
+          <div class="col-8 my-auto">
+            <div class="chart-container">
+              <canvas id="MyChart1">{{usersChart}}</canvas>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="card">
+      <mat-card-content>
+        <div class="row">
+          <div class="col-4">
+            <h2 class="title">Product:</h2>
+            <div class="report-item c-r">
+              <p class="item-title">In Stock</p>
+              <p class="item-value">{{data.products_in}}</p>
+            </div>
+            <div class="report-item c-g">
+              <p class="item-title">Out of Stock</p>
+              <p class="item-value">{{data.products_out}}</p>
+            </div>
+            <div class="report-item c-b">
+              <p class="item-title">Available Soon</p>
+              <p class="item-value">{{data.products_soon}}</p>
+            </div>
+          </div>
+  
+          <div class="col-8 my-auto">
+            <div class="chart-container">
+              <canvas id="MyChart2">{{productsChart}}</canvas>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="card">
+      <mat-card-content>
+        <div class="row">
+          <div class="col-4">
+            <h2 class="title">Order:</h2>
+                <div class="report-item c-r">
+                  <p class="item-title">Pending</p>
+                  <p class="item-value">{{data.orders_pending}}</p>
+                </div>
+                <div class="report-item c-g">
+                  <p class="item-title">Shipped</p>
+                  <p class="item-value">{{data.orders_shipped}}</p>
+                </div>
+                <div class="report-item c-b">
+                  <p class="item-title">Delivered</p>
+                  <p class="item-value">{{data.orders_delivered}}</p>
+                </div>
+                <div class="report-item c-o">
+                  <p class="item-title">Canceled</p>
+                  <p class="item-value">{{data.orders_canceled}}</p>
+                </div>
+          </div>
+      
+          <div class="col-8 my-auto">
+            <div class="chart-container">
+              <canvas id="MyChart3">{{ordersChart}}</canvas>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+</div>

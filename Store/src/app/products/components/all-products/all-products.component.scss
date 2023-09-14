@@ -1,0 +1,156 @@
+.product-list {
+    text-align: center;
+    margin: 10px;
+  }
+
+  .details {
+    cursor: pointer;
+  }
+
+  .search-options {
+    display: flex;
+    gap: 10px;
+    padding: 5px;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+
+  .search-options label {
+    user-select: none;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  
+  .search-bar {
+    justify-content: center;
+    padding: 5px;
+    display: flex;
+  }
+  
+  .search-bar input {
+    padding: 5px 15px;
+    width: 400px;
+    border: none;
+    outline: none;
+    height: 45px;
+    font-size: 16px;
+    background: transparent;
+    background-color: #f0f0f0;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+  
+  .search-button {
+    padding: 5px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    height: 45px;
+    font-weight: bold;
+    border-top-right-radius: 20px; 
+    border-bottom-right-radius: 20px; 
+  }
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .product {
+    flex-basis: calc(25% - 20px); 
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  .product img {
+    width: 100%;
+    height: 200px;
+  }
+  
+  .product h3 {
+    height: 2em; 
+    line-height: 1em;
+    overflow: hidden;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 10px 5px 20px 5px;
+  }
+  
+  .price {
+    color: blue;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 15px 5px 5px 5px;
+  }
+
+  .desc {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+    margin: 10px 10px 5px 10px;
+    font-size: 18px;
+  }
+
+  .btn-container {
+    margin-top: auto;
+    text-align: center;
+  }
+  
+  .btn-active {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    font-weight: bold;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .card button:hover {
+    opacity: 0.7;
+  }
+
+  .btn-disable {
+    cursor: not-allowed;
+    background-color: #ccc;
+    color: #666;
+    pointer-events: none; 
+  }
+
+.out::after{
+    position: absolute;
+    content: 'Out Of Stock';
+    top: 11px;
+    right: -14px;
+    padding: 0.5rem;
+    width: 7rem;
+    background: red;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 4px 4px 15px rgba(26, 35, 126, 0.2);
+}
+
+.soon::after{
+    position: absolute;
+    content: 'Coming Soon';
+    top: 11px;
+    right: -14px;
+    padding: 0.5rem;
+    width: 7rem;
+    background: #176B87;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 4px 4px 15px rgba(26, 35, 126, 0.2);
+}

@@ -1,0 +1,30 @@
+<app-loading *ngIf="loading"></app-loading>
+
+<app-toast [start]="toastShow" [body]="toastMessage"></app-toast>
+
+<app-empty *ngIf="!users.length"></app-empty>
+
+<div class="container mt-3" *ngIf="users.length">
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <div class="product-titles">
+                <div class="col-md-3 column-title"><p>Name</p></div>
+                <div class="col-md-4 column-title"><p>Email</p></div>
+                <div class="col-md-2 column-title"><p>Orders</p></div>
+                <div class="col-md-3 column-title"><p>Options</p></div>
+            </div>
+
+            <div class="product-list" *ngFor="let item of users">
+                <div class="col-md-3"><p>{{item.name}}</p></div>
+                <div class="col-md-4"><p>{{item.email}}</p></div>
+                <div class="col-md-2"><p>{{item.n_orders}}</p></div>
+                <div class="col-md-3 options">
+                    <button class="btn btn-info" *ngIf="!item.active" 
+                        (click)="changeUser(item.id, 1)">Activate</button>
+                    <button class="btn btn-danger" *ngIf="item.active" 
+                        (click)="changeUser(item.id, 2)">Deactivate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+.empty-container {
+    width: 65%;
+    height: 65%;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .empty-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .empty-title {
+    text-align: center;
+    font-size: 24px;
+    color: dodgerblue;
+  }

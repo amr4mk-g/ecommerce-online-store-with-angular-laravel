@@ -1,0 +1,18 @@
+<div mat-dialog-content>
+    <div class="product-details">
+        <div class="product-image">
+          <img [src]="data.product.image" alt="{{data.product.name}}">
+        </div>
+        <div class="product-info">
+          <h2>{{data.product.name}}</h2>
+          <p><strong>Category:</strong>  {{data.product.category}}</p>
+          <p><strong>Price:</strong>  {{data.product.price}} L.E</p>
+          <p>{{data.product.description}}</p>
+          <div class="status">
+            <strong *ngIf="data.product.status == 'out'">Out Of Stock</strong>
+            <strong *ngIf="data.product.status == 'soon'">Coming Soon</strong>
+          </div>
+        </div>
+    </div>      
+</div>
+  

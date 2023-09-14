@@ -1,0 +1,38 @@
+  .product-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+  }
+  
+  .product-image {
+    flex: 0 0 40%;
+    padding-right: 20px;
+  }
+  
+  .product-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .product-info {
+    flex: 1;
+  }
+  
+  .product-info h2 {
+    font-size: 24px;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-size: 22px;
+  }
+  
+  .product-info p {
+    margin: 0;
+    padding: 5px 0;
+  }
+  
+  .status {
+    padding-top: 15px;
+    color: red;
+  }

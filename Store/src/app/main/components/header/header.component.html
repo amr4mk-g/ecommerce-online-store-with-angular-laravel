@@ -1,0 +1,22 @@
+<header class="app-header">
+    <div class="left">
+        <h3>Art-Store</h3>
+    </div>
+
+    <div class="right">
+        <a routerLink="/products" routerLinkActive="active" class="link">Products</a>
+
+        <ng-container *ngIf="!loggedIn">
+          <a routerLink="/signin" routerLinkActive="active" class="link">Sign In</a>
+          <a routerLink="/signup" routerLinkActive="active" class="link">Sign Up</a>
+        </ng-container>
+
+        <ng-container *ngIf="loggedIn">
+            <a routerLink="/orders" routerLinkActive="active" class="link">Orders</a>
+            <a routerLink="/cart" routerLinkActive="active" class="link">Cart</a>
+            <a routerLink="/profile" routerLinkActive="active" class="link">Profile</a>
+            <button class="btn out" (click)="logout()">Logout</button>
+        </ng-container>
+    </div>
+</header>
+  

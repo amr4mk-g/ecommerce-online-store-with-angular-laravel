@@ -1,0 +1,38 @@
+.product-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+ 
+.product-titles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.product-titles p {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.product-list img {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.options {
+    display: flex;
+    gap: 10px;
+}
+
+.column-title {
+    font-weight: bold;
+    margin-bottom:  0;
+}

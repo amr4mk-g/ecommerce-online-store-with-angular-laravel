@@ -1,0 +1,70 @@
+<h1 mat-dialog-title>Add New Product:</h1>
+<div mat-dialog-content>
+  <form #productForm="ngForm" (submit)="saveProduct()">
+    <mat-grid-list cols="2" rowHeight="3:1">
+
+      <mat-grid-tile>
+        <mat-form-field>
+          <label>Name</label>
+          <input matInput [(ngModel)]="data.product.name" name="name" #name='ngModel' required>
+          <mat-error *ngIf="name.touched && name.invalid">Name is required</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field>
+          <label>Category</label>
+          <input matInput [(ngModel)]="data.product.category" name="category" #category='ngModel' required>
+          <mat-error *ngIf="category.touched && category.invalid">Category is required</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field>
+          <label>Description</label>
+          <input matInput [(ngModel)]="data.product.description" name="description" #description='ngModel' required>
+          <mat-error *ngIf="description.touched && description.invalid">Description is required</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field>
+          <mat-select placeholder="Status" [(ngModel)]="data.product.status" #status='ngModel' name="status" required>
+            <mat-option value="in">Available</mat-option>
+            <mat-option value="out">Out of Stock</mat-option>
+            <mat-option value="soon">Soon</mat-option>
+          </mat-select>
+          <mat-error *ngIf="status.touched && status.invalid">Status is required</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field>
+          <label>Price</label>
+          <input matInput type="number" [(ngModel)]="data.product.price" name="price" #price='ngModel' required>
+          <mat-error *ngIf="price.touched && price.invalid">Price is required</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field>
+          <label>Stock</label>
+          <input matInput type="number" [(ngModel)]="data.product.stock" name="stock" #stock='ngModel' required>
+          <mat-error *ngIf="stock.touched && stock.invalid">Stock is required</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="2" class="image-upload">
+          <label for="productImage">Image: </label>
+          <input type="file" accept="image/*" class="form-control" id="productImage" 
+              name="productImage" (change)="previewImage($event)">
+          <img *ngIf="data.product.image" [src]="data.product.image" class="preview-image">
+      </mat-grid-tile>
+
+    </mat-grid-list>
+  </form>
+</div>
+<div mat-dialog-actions class="opt">
+  <button class="btn btn-danger" (click)="cancel()">Cancel</button>
+  <button class="btn btn-success" (click)="saveProduct()" [disabled]='productForm.invalid'>Save</button>
+</div>

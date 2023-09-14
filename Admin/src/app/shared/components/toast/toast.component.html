@@ -1,0 +1,8 @@
+<div class="position-fixed top-0 p-3" style="z-index: 11">
+    <div id="liveToast" class="toast" [ngClass]="start? 'show':'hide'" 
+            aria-live="assertive" aria-atomic="true" role="alert">
+      <div class="toast-header">
+        <strong class="me-auto message">{{body}}</strong>
+      </div>
+    </div>
+</div>

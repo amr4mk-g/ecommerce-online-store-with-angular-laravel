@@ -1,0 +1,40 @@
+img {
+    max-width: 80px;
+    max-height: 80px;
+    margin-right: 10px;
+}
+
+.cart-items {
+    padding: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  input {
+    width: 50px;
+    text-align: center;
+  }
+  
+  .total {
+    margin-top: 25px;
+    text-align: center;
+  }
+
+  .cost {
+    font-weight: bold;
+    font-size: 22px;
+    color: blue;
+  }

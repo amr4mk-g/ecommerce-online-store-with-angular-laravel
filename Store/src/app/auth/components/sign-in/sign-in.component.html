@@ -1,0 +1,40 @@
+<app-loading *ngIf="loading"></app-loading>
+
+<app-toast [start]="toastShow" [body]="toastMessage"></app-toast>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header text-white bg">
+            <h4 class="mb-0">Sign in</h4>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" class="form-control" id="email" placeholder="Enter your email" formControlName="userEmail">
+                <div class="text-danger" *ngIf="form.get('userEmail')!.invalid && form.get('userEmail')!.touched">Email is required.</div>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter your password" formControlName="userPass">
+                <div class="text-danger" *ngIf="form.get('userPass')!.invalid && form.get('userPass')!.touched">Password is required, at least 8 characters.</div>
+              </div>
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="rememberMe">
+                <label class="form-check-label" for="rememberMe">Remember me</label>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block" [disabled]='form.invalid'>Login</button>
+          </form>
+          <div class="text-center mt-3">
+            <a href="/forget" class="text-muted">Forgot your password?</a>
+          </div>
+        </div>
+        <div class="card-footer text-center">
+          <p class="mb-0">Don't have an account? <a href="/signup">Sign up</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

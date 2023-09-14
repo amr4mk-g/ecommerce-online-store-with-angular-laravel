@@ -1,0 +1,47 @@
+.order-list {
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 5px;
+  }
+  
+  .order {
+    padding: 5px;
+    margin-bottom: 15px;
+  }
+  
+  .order h3 {
+    margin: 0;
+    font-size: 20px;
+    color: black;
+    margin: 10px auto;
+    border-bottom: 1px solid black;
+  }
+  
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 5px;
+  }
+  
+  .product {
+    display: flex;
+    padding: 5px;
+    align-items: center;
+  }
+ 
+  .status {
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .cost {
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+  }

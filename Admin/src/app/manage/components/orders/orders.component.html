@@ -1,0 +1,60 @@
+<app-loading *ngIf="loading"></app-loading>
+
+<app-toast [start]="toastShow" [body]="toastMessage"></app-toast>
+
+<app-empty *ngIf="!orders.length"></app-empty>
+
+<div class="container mt-3" *ngIf="orders.length">
+    <div class="search-bar">
+        <input type="text" placeholder="Search by order number" [(ngModel)]="searchQuery"
+            (keyup.enter)="searchOrders()">
+        <button class="search-button" (click)="searchOrders()">Search</button>
+    </div>
+
+    <div class="filter">
+        <mat-form-field class="form-field">
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+              <input matStartDate formControlName="start" placeholder="Start date">
+              <input matEndDate formControlName="end" placeholder="End date">
+            </mat-date-range-input>
+            <mat-hint>From MM/DD/YYYY – To MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          
+            <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+            <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+        </mat-form-field>
+        <button class="btn btn-primary btnF" (click)="applyDateFilter()">Filter</button>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <div class="product-titles">
+                <div class="col-md-2 column-title"><p>Number</p></div>
+                <div class="col-md-3 column-title"><p>Customer</p></div>
+                <div class="col-md-3 column-title"><p>Date</p></div>
+                <div class="col-md-4 column-title"><p>Options</p></div>
+            </div>
+
+            <div class="product-list" *ngFor="let item of filteredOrders">
+                <div class="col-md-2"><p>{{item.order_number}}</p></div>
+                <div class="col-md-3"><p>{{item.customer_name}}</p></div>
+                <div class="col-md-3"><p>{{item.order_date}}</p></div>
+                <div class="col-md-4 options">
+                    <button class="btn btn-info" (click)="openModalView(item.id)">View</button>
+     
+                    <mat-form-field appearance="outline" class="mat-form-field">
+                        <mat-select placeholder="Status" [(ngModel)]="item.order_status" 
+                        name="status" (selectionChange)="onChange($event, item.id)">
+                            <mat-option value="pending">Pending</mat-option>
+                            <mat-option value="shipped">Shipped</mat-option>
+                            <mat-option value="delivered">Delivered</mat-option>
+                            <mat-option value="cancelled">Cancelled</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

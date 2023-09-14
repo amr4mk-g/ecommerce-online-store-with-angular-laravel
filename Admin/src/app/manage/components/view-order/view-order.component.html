@@ -1,0 +1,54 @@
+<div mat-dialog-content>
+    <div class="customer-details">
+        <h3>Customer Details:</h3>
+        <div class="detail">
+          <label>User ID:</label>
+          <span>{{data.order.user_id}}</span>
+        </div>
+        <div class="detail">
+          <label>Name:</label>
+          <span>{{data.order.customer_name}}</span>
+        </div>
+        <div class="detail">
+          <label>Phone:</label>
+          <span>{{data.order.customer_phone}}</span>
+        </div>
+        <div class="detail">
+          <label>Email:</label>
+          <span>{{data.order.customer_email}}</span>
+        </div>
+        <div class="detail">
+          <label>Address:</label>
+          <span>{{data.order.customer_address}}</span>
+        </div>
+      </div>
+      
+      <div class="order-items">
+        <h3>Order Details:</h3>
+        <h6>#{{data.order.order_number}}</h6>
+        <table>
+          <thead>
+            <tr>
+              <th>Product ID</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of data.items">
+              <td>{{item.product_id}}</td>
+              <td>{{item.product_name}}</td>
+              <td>{{item.product_price}}</td>
+              <td>{{item.product_quantity}}</td>
+              <td>{{item.product_subtotal}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="total-cost">
+        <h4>Total Order: {{data.order.order_total}} L.E</h4>
+      </div>
+</div>

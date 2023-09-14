@@ -1,0 +1,31 @@
+<app-loading *ngIf="loading"></app-loading>
+
+<app-toast [start]="toastShow" [body]="toastMessage"></app-toast>
+
+<app-empty *ngIf="!orders.length"></app-empty>
+
+<div class="order-list" *ngIf="orders.length">
+    <div *ngFor="let item of orders" class="order">
+      <mat-card>
+        <mat-card-content>
+          <h3>Order #{{item.order_number}}</h3>
+          <p>Date: {{item.order_date}}</p>
+          <p>Status: <span class="status">{{item.order_status}}</span></p>
+          <p>Total: <span class="cost">{{item.order_total}} L.E</span></p>
+          <div class="product-list">
+            <div *ngFor="let product of item.order_items" class="product">
+              <mat-card>
+                <mat-card-content>
+                  <div class="product-info">
+                    <h4>{{product.product_name}}</h4>
+                    <p>Price: {{product.product_price}} L.E</p>
+                    <p>Quantity: {{product.product_quantity}}</p>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>

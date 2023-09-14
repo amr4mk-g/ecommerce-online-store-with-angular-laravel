@@ -1,0 +1,37 @@
+<app-loading *ngIf="loading"></app-loading>
+
+<app-toast [start]="toastShow" [body]="toastMessage"></app-toast>
+
+<app-empty *ngIf="!items.length"></app-empty>
+
+<div class="cart-items" *ngIf="items.length">
+    <table>
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Subtotal</th>
+          <th>Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items; let i=index">
+          <td><img [src]="item.product.image" alt="{{item.product.name}}"></td>
+          <td>{{item.product.name}}</td>
+          <td>{{item.product.price | number:'1.2'}} L.E</td>
+          <td>
+            <input type="number" [(ngModel)]="item.quantity" 
+                (ngModelChange)="updateQuantity(i, item)" min="1" max="99">
+          </td>
+          <td><p>{{calculateSubtotal(item) | number:'1.2'}} L.E</p></td>
+          <td><button class="btn btn-danger" (click)="openModalDelete(i)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="total">
+      <p class="cost">Total: {{calculateTotal() | number:'1.2'}} L.E</p>
+      <button class="btn btn-primary" (click)="placeOrder()">Place Order</button>
+    </div>
+</div>

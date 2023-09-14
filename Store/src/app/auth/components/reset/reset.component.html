@@ -1,0 +1,29 @@
+<app-loading *ngIf="loading"></app-loading>
+
+<app-toast [start]="toastShow" [body]="toastMessage"></app-toast>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header text-white bg">
+            <h4 class="mb-0">Set new password</h4>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+              <div class="mb-3">
+                <label for="pass1" class="form-label">New Password</label>
+                <input type="password" class="form-control" id="pass1" placeholder="Enter new password" formControlName="pass1">
+                <div class="text-danger" *ngIf="form.get('pass1')!.invalid && form.get('pass1')!.touched">Password is required, at least 8 characters.</div>
+              </div>
+              <div class="mb-3">
+                <label for="pass2" class="form-label">Repeat Password</label>
+                <input type="password" class="form-control" id="pass2" placeholder="Repeat your password" formControlName="pass2">
+                <div class="text-danger" *ngIf="form.get('pass2')!.invalid && form.get('pass2')!.touched">Repeat password is required, at least 8 characters.</div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block" [disabled]='form.invalid'>Submit</button>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<app-loading *ngIf="loading"></app-loading>
+
+<app-toast [start]="toastShow" [body]="toastMessage"></app-toast>
+
+<app-empty *ngIf="!filteredProducts.length"></app-empty>
+
+<div class="product-list" *ngIf="filteredProducts.length">
+  <div class="search-bar">
+      <input type="text" placeholder="Search by product name" [(ngModel)]="searchQuery"
+          (keyup.enter)="searchProducts()">
+      <button class="search-button" (click)="searchProducts()">Search</button>
+  </div>
+
+  <div class="search-options">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="out" id="check1" 
+            [(ngModel)]="includeOut" (change)="onCheckChange()">
+        <label class="form-check-label" for="check1">Out Of Stock</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="soon" id="check2" 
+            [(ngModel)]="includeSoon" (change)="onCheckChange()">
+        <label class="form-check-label" for="check2">Coming Soon</label>
+      </div>
+  </div>
+
+  <div class="products">
+    <div class="product card" *ngFor="let item of filteredProducts; let i=index">
+        <div [class.out]="item.status == 'out'" [class.soon]="item.status == 'soon'">
+            <div class="details" (click)="details(i)">
+                <img [src]="item.image || 'assets/images/placeholder.png'">
+                <h3>{{item.name}}</h3>
+                <p class="price">{{item.price}} L.E</p>
+                <p class="desc">{{item.description}}</p>
+            </div>
+           
+            <div class="btn-container">
+                <button class="btn-active" (click)="addToCart(item.id)" 
+                    [class.btn-disable]="item.status != 'in'">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

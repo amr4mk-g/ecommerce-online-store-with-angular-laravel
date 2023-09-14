@@ -1,0 +1,44 @@
+  .report-item {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .item-title {
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .item-value {
+    font-size: 1.1rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .title {
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+  }
+
+  .card {
+    width: 85%;
+    margin: 10px auto;
+    padding: 5px 10px;
+  }
+
+  .c-r {
+    color: red;
+  }
+  .c-g {
+    color: green;
+  }
+  .c-b {
+    color: blue;
+  }
+  .c-o {
+    color: orange;
+  }
