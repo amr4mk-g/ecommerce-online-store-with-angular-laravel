@@ -21,7 +21,7 @@ cd Store
 npm install
 ng serve
 ```
-For testing: [email:  admin@example.com, password:  admin@example]
+For testing: [email:  amr@example.com, password:  amr@example]
 
 ## Usage: Admin
 
@@ -30,4 +30,4 @@ cd Admin
 npm install
 ng serve
 ```
-For testing: [email:  amr@example.com, password:  amr@example]
+For testing: [email:  admin@example.com, password:  admin@example]
