@@ -1,22 +1,41 @@
-<header class="app-header">
-    <div class="left">
-        <h3>Art-Store</h3>
-    </div>
+<header class="app-header navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand">Art Store</a>
 
-    <div class="right">
-        <a routerLink="/products" routerLinkActive="active" class="link">Products</a>
+        <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <ng-container *ngIf="!loggedIn">
-          <a routerLink="/signin" routerLinkActive="active" class="link">Sign In</a>
-          <a routerLink="/signup" routerLinkActive="active" class="link">Sign Up</a>
-        </ng-container>
+        <div class="collapse navbar-collapse" #navbarCollapse>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a routerLink="/products" routerLinkActive="active" class="nav-link">Products</a>
+                </li>
 
-        <ng-container *ngIf="loggedIn">
-            <a routerLink="/orders" routerLinkActive="active" class="link">Orders</a>
-            <a routerLink="/cart" routerLinkActive="active" class="link">Cart</a>
-            <a routerLink="/profile" routerLinkActive="active" class="link">Profile</a>
-            <button class="btn out" (click)="logout()">Logout</button>
-        </ng-container>
+                <ng-container *ngIf="!loggedIn">
+                    <li class="nav-item">
+                        <a routerLink="/signin" routerLinkActive="active" class="nav-link">Sign In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/signup" routerLinkActive="active" class="nav-link">Sign Up</a>
+                    </li>
+                </ng-container>
+
+                <ng-container *ngIf="loggedIn">
+                    <li class="nav-item">
+                        <a routerLink="/orders" routerLinkActive="active" class="nav-link">Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/cart" routerLinkActive="active" class="nav-link">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/profile" routerLinkActive="active" class="nav-link">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link logout-link" (click)="logout()">Logout</a>
+                    </li>                      
+                </ng-container>
+            </ul>
+        </div>
     </div>
 </header>
-  
