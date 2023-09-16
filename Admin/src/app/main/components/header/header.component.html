@@ -1,19 +1,37 @@
-<header class="app-header">
-    <div class="left">
-      <h3>Store-Admin</h3>
-    </div>
-    
-    <div class="right">
-      <a *ngIf="!loggedIn" routerLink="/signin" routerLinkActive="active" class="link">Sign In</a>
+<header class="app-header navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+      <a class="navbar-brand">Store Admin</a>
 
-      <ng-container *ngIf="loggedIn">
-        <a routerLink="/reports" routerLinkActive="active" class="link">Reports</a>
-        <a routerLink="/dashboard" routerLinkActive="active" class="link">Products</a>
-        <a routerLink="/orders" routerLinkActive="active" class="link">Orders</a>
-        <a routerLink="/users" routerLinkActive="active" class="link">Users</a>
-       
-        <button class="btn out" (click)="logout()">Logout</button>
-      </ng-container>
-    </div>
+      <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" #navbarCollapse>
+          <ul class="navbar-nav ml-auto">
+              <ng-container *ngIf="!loggedIn">
+                  <li class="nav-item">
+                      <a routerLink="/signin" routerLinkActive="active" class="nav-link">Sign In</a>
+                  </li>
+              </ng-container>
+
+              <ng-container *ngIf="loggedIn">
+                  <li class="nav-item">
+                      <a routerLink="/reports" routerLinkActive="active" class="nav-link">Reports</a>
+                  </li>
+                  <li class="nav-item">
+                      <a routerLink="/dashboard" routerLinkActive="active" class="nav-link">Products</a>
+                  </li>
+                  <li class="nav-item">
+                      <a routerLink="/orders" routerLinkActive="active" class="nav-link">Orders</a>
+                  </li>
+                  <li class="nav-item">
+                      <a routerLink="/users" routerLinkActive="active" class="nav-link">Users</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link logout-link" (click)="logout()">Logout</a>
+                  </li>                      
+              </ng-container>
+          </ul>
+      </div>
+  </div>
 </header>
-  
