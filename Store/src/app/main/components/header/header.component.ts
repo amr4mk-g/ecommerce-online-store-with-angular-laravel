@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
 
@@ -26,5 +26,10 @@ export class HeaderComponent implements OnInit, OnDestroy{
 
   ngOnDestroy(): void {
     this.authListener.unsubscribe()    
+  }
+
+  @ViewChild('navbarCollapse') navbarCollapse!: ElementRef;
+  toggleNavbar() {
+    this.navbarCollapse.nativeElement.classList.toggle('show');
   }
 }
